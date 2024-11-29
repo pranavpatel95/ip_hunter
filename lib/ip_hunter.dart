@@ -34,32 +34,32 @@ class IpHunter {
     }
   }
 
-  Future<String> getCity(String ip) async {
+  Future<String> getCity() async {
     try {
       //50000 hit limit
-      final response = await http.get(Uri.parse("https://ipinfo.io/$ip/json"));
-      String publicIP = "Couldn't find your requested details.";
-      if (response.statusCode == 200) {
+      // final response = await http.get(Uri.parse("https://ipinfo.io/$ip/json"));
+      // String publicIP = "Couldn't find your requested details.";
+     /* if (response.statusCode == 200) {
         final json = jsonDecode(response.body);
         publicIP = json['city'];
         debugPrint('Public IP Address from the 1st clause: $publicIP');
-      } else {
+      } else {*/
         //10000 hit limit
         final response = await http.get(Uri.parse('https://ipwhois.app/json/'));
         String publicIP = "Couldn't find your requested details.";
         final json = jsonDecode(response.body);
         publicIP = json['city'];
         return publicIP;
-      }
-      return publicIP;
+      // }
+      // return publicIP;
     } catch (e) {
       return e.toString();
     }
   }
 
-  Future<String> getRegion(String ip) async {
+  Future<String> getRegion() async {
     try {
-      //50000 hit limit
+     /* //50000 hit limit
       final response = await http.get(Uri.parse("https://ipinfo.io/$ip/json"));
       String publicIP = "Couldn't find your requested details.";
       if (response.statusCode == 200) {
@@ -67,23 +67,23 @@ class IpHunter {
         publicIP = json['region'];
         debugPrint('Public IP Address from the 1st clause: $publicIP');
       } else {
-        //10000 hit limit
+        //10000 hit limit*/
         final response = await http.get(Uri.parse('https://ipwhois.app/json/'));
         String publicIP = "Couldn't find your requested details.";
         final json = jsonDecode(response.body);
         publicIP = json['region'];
         return publicIP;
-      }
-      return publicIP;
+      // }
+      // return publicIP;
     } catch (e) {
       return e.toString();
     }
   }
 
-  Future<String> getPostalCode(String ip) async {
+ /* Future<String> getPostalCode() async {
     try {
-      //50000 hit limit
-      final response = await http.get(Uri.parse("https://ipinfo.io/$ip/json"));
+      //10000 hit limit
+      final response = await http.get(Uri.parse("https://ipwhois.app/json/"));
       String publicIP = "Couldn't find your requested details.";
       if (response.statusCode == 200) {
         final json = jsonDecode(response.body);
@@ -96,26 +96,26 @@ class IpHunter {
     } catch (e) {
       return e.toString();
     }
-  }
+  }*/
 
-  Future<String> getCountry(String ip) async {
+  Future<String> getCountry() async {
     try {
-      //50000 hit limit
+      /*//10000 hit limit
       final response = await http.get(Uri.parse("https://ipinfo.io/$ip/json"));
       String publicIP = "Couldn't find your requested details.";
       if (response.statusCode == 200) {
         final json = jsonDecode(response.body);
         publicIP = json['country'];
         debugPrint('Public IP Address from the 1st clause: $publicIP');
-      } else {
+      } else {*/
         //10000 hit limit
         final response = await http.get(Uri.parse('https://ipwhois.app/json/'));
         String publicIP = "Couldn't find your requested details.";
         final json = jsonDecode(response.body);
-        publicIP = json['city'];
+        publicIP = json['country'];
         return publicIP;
-      }
-      return publicIP;
+      // }
+      // return publicIP;
     } catch (e) {
       return e.toString();
     }

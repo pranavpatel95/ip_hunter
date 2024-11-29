@@ -1,7 +1,7 @@
 name: ip_hunter
 description: "Fetch ip address, region and location info."
-version: 0.0.1
-homepage:
+version: 1.0.0
+repository: https://github.com/pranavpatel95/ip_hunter
 
 environment:
   sdk: '>=3.4.3 <4.0.0'

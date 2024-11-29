@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import 'package:ip_hunter/ip_hunter.dart';
 
 void main() {
@@ -33,7 +32,8 @@ class _MyAppState extends State<MyApp> {
             future: _ipHunterPlugin.getPublicIPAddress(), // async work
             builder: (BuildContext context, AsyncSnapshot<String> snapshot) {
               switch (snapshot.connectionState) {
-                case ConnectionState.waiting: return const Text('Loading....');
+                case ConnectionState.waiting:
+                  return const Text('Loading....');
                 default:
                   if (snapshot.hasError) {
                     return Text('Error: ${snapshot.error}');
@@ -43,63 +43,72 @@ class _MyAppState extends State<MyApp> {
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Text('Ip address: ${snapshot.data}' , style: TextStyle(fontSize: 17),),
-                          const SizedBox(height: 20,),
+                          Text(
+                            'Ip address: ${snapshot.data}',
+                            style: const TextStyle(fontSize: 17),
+                          ),
+                          const SizedBox(
+                            height: 20,
+                          ),
                           FutureBuilder<String>(
-                            future: _ipHunterPlugin.getCity(snapshot.data.toString()), // async work
-                            builder: (BuildContext context, AsyncSnapshot<String> snapshot) {
+                            future: _ipHunterPlugin.getCity(), // async work
+                            builder: (BuildContext context,
+                                AsyncSnapshot<String> snapshot) {
                               switch (snapshot.connectionState) {
-                                case ConnectionState.waiting: return const Text('Loading....');
+                                case ConnectionState.waiting:
+                                  return const Text('Loading....');
                                 default:
                                   if (snapshot.hasError) {
                                     return Text('Error: ${snapshot.error}');
                                   } else {
-                                    return Text('City: ${snapshot.data}',style: TextStyle(fontSize: 17),);
+                                    return Text(
+                                      'City: ${snapshot.data}',
+                                      style: const TextStyle(fontSize: 17),
+                                    );
                                   }
                               }
                             },
                           ),
-                          const SizedBox(height: 20,),
+                          const SizedBox(
+                            height: 20,
+                          ),
                           FutureBuilder<String>(
-                            future: _ipHunterPlugin.getRegion(snapshot.data.toString()), // async work
-                            builder: (BuildContext context, AsyncSnapshot<String> snapshot) {
+                            future: _ipHunterPlugin.getRegion(), // async work
+                            builder: (BuildContext context,
+                                AsyncSnapshot<String> snapshot) {
                               switch (snapshot.connectionState) {
-                                case ConnectionState.waiting: return const Text('Loading....');
+                                case ConnectionState.waiting:
+                                  return const Text('Loading....');
                                 default:
                                   if (snapshot.hasError) {
                                     return Text('Error: ${snapshot.error}');
                                   } else {
-                                    return Text('Region: ${snapshot.data}', style: TextStyle(fontSize: 17),);
+                                    return Text(
+                                      'Region: ${snapshot.data}',
+                                      style: const TextStyle(fontSize: 17),
+                                    );
                                   }
                               }
                             },
                           ),
-                          const SizedBox(height: 20,),
-                          FutureBuilder<String>(
-                            future: _ipHunterPlugin.getPostalCode(snapshot.data.toString()), // async work
-                            builder: (BuildContext context, AsyncSnapshot<String> snapshot) {
-                              switch (snapshot.connectionState) {
-                                case ConnectionState.waiting: return const Text('Loading....');
-                                default:
-                                  if (snapshot.hasError) {
-                                    return Text('Error: ${snapshot.error}');
-                                  } else {
-                                    return Text('Postal Code: ${snapshot.data}',style: TextStyle(fontSize: 17),);
-                                  }
-                              }
-                            },
+                          const SizedBox(
+                            height: 20,
                           ),
-                          const SizedBox(height: 20,),
                           FutureBuilder<String>(
-                            future: _ipHunterPlugin.getCountry(snapshot.data.toString()), // async work
-                            builder: (BuildContext context, AsyncSnapshot<String> snapshot) {
+                            future: _ipHunterPlugin.getCountry(), // async work
+                            builder: (BuildContext context,
+                                AsyncSnapshot<String> snapshot) {
                               switch (snapshot.connectionState) {
-                                case ConnectionState.waiting: return const Text('Loading....');
+                                case ConnectionState.waiting:
+                                  return const Text('Loading....');
                                 default:
                                   if (snapshot.hasError) {
                                     return Text('Error: ${snapshot.error}');
                                   } else {
-                                    return Text('Country: ${snapshot.data}', style: TextStyle(fontSize: 17),);
+                                    return Text(
+                                      'Country: ${snapshot.data}',
+                                      style: const TextStyle(fontSize: 17),
+                                    );
                                   }
                               }
                             },
