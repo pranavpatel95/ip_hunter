@@ -13,8 +13,6 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  final _ipHunterPlugin = IpHunter();
-
   @override
   void initState() {
     super.initState();
@@ -29,7 +27,7 @@ class _MyAppState extends State<MyApp> {
         ),
         body: Center(
           child: FutureBuilder<String>(
-            future: _ipHunterPlugin.getPublicIPAddress(), // async work
+            future: IpHunter.getPublicIPAddress(), // async work
             builder: (BuildContext context, AsyncSnapshot<String> snapshot) {
               switch (snapshot.connectionState) {
                 case ConnectionState.waiting:
@@ -51,7 +49,7 @@ class _MyAppState extends State<MyApp> {
                             height: 20,
                           ),
                           FutureBuilder<String>(
-                            future: _ipHunterPlugin.getCity(), // async work
+                            future: IpHunter.getCity(), // async work
                             builder: (BuildContext context,
                                 AsyncSnapshot<String> snapshot) {
                               switch (snapshot.connectionState) {
@@ -73,7 +71,7 @@ class _MyAppState extends State<MyApp> {
                             height: 20,
                           ),
                           FutureBuilder<String>(
-                            future: _ipHunterPlugin.getRegion(), // async work
+                            future: IpHunter.getRegion(), // async work
                             builder: (BuildContext context,
                                 AsyncSnapshot<String> snapshot) {
                               switch (snapshot.connectionState) {
@@ -95,7 +93,7 @@ class _MyAppState extends State<MyApp> {
                             height: 20,
                           ),
                           FutureBuilder<String>(
-                            future: _ipHunterPlugin.getCountry(), // async work
+                            future: IpHunter.getCountry(), // async work
                             builder: (BuildContext context,
                                 AsyncSnapshot<String> snapshot) {
                               switch (snapshot.connectionState) {
