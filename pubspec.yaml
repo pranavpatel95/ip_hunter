@@ -1,7 +1,7 @@
 name: ip_hunter
 description: "A Flutter package to retrieve the device's network IP address and fetch detailed location information, such as city, region, and 
 country based on the connected network."
-version: 1.0.3
+version: 1.1.0
 repository: https://github.com/pranavpatel95/ip_hunter
 
 environment:

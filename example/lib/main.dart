@@ -111,6 +111,72 @@ class _MyAppState extends State<MyApp> {
                               }
                             },
                           ),
+                          const SizedBox(
+                            height: 20,
+                          ),
+                          FutureBuilder<String>(
+                            future: IpHunter.getCountryCode(), // async work
+                            builder: (BuildContext context,
+                                AsyncSnapshot<String> snapshot) {
+                              switch (snapshot.connectionState) {
+                                case ConnectionState.waiting:
+                                  return const Text('Loading....');
+                                default:
+                                  if (snapshot.hasError) {
+                                    return Text('Error: ${snapshot.error}');
+                                  } else {
+                                    return Text(
+                                      'Country Code: ${snapshot.data}',
+                                      style: const TextStyle(fontSize: 17),
+                                    );
+                                  }
+                              }
+                            },
+                          ),
+                          const SizedBox(
+                            height: 20,
+                          ),
+                          FutureBuilder<String>(
+                            future: IpHunter.getCurrency(), // async work
+                            builder: (BuildContext context,
+                                AsyncSnapshot<String> snapshot) {
+                              switch (snapshot.connectionState) {
+                                case ConnectionState.waiting:
+                                  return const Text('Loading....');
+                                default:
+                                  if (snapshot.hasError) {
+                                    return Text('Error: ${snapshot.error}');
+                                  } else {
+                                    return Text(
+                                      'Currency: ${snapshot.data}',
+                                      style: const TextStyle(fontSize: 17),
+                                    );
+                                  }
+                              }
+                            },
+                          ),
+                          const SizedBox(
+                            height: 20,
+                          ),
+                          FutureBuilder<String>(
+                            future: IpHunter.getIpType(), // async work
+                            builder: (BuildContext context,
+                                AsyncSnapshot<String> snapshot) {
+                              switch (snapshot.connectionState) {
+                                case ConnectionState.waiting:
+                                  return const Text('Loading....');
+                                default:
+                                  if (snapshot.hasError) {
+                                    return Text('Error: ${snapshot.error}');
+                                  } else {
+                                    return Text(
+                                      'IP type: ${snapshot.data}',
+                                      style: const TextStyle(fontSize: 17),
+                                    );
+                                  }
+                              }
+                            },
+                          ),
                         ],
                       ),
                     );

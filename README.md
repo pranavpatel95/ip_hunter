@@ -49,12 +49,15 @@ The package uses publicly available APIs to provide location details based on th
 ## Details:
 The package provides the following methods:
 
-| Method                | Description                                   | Returns |
-|-----------------------|-----------------------------------------------|:-------:|
-| getNetworkIpAddress() | Fetches the network's IP address.             | String  |
-| getCity()             | Retrieves the city associated with the IP.    | String  |
-| getRegion()           | Retrieves the region/state for the IP.        | String  |
-| getCountry()          | Retrieves the country associated with the IP. | String  |
+| Method                | Description                                             | Returns |
+|-----------------------|---------------------------------------------------------|:-------:|
+| getNetworkIpAddress() | Fetches the network's IP address.                       | String  |
+| getCity()             | Retrieves the city associated with the IP.              | String  |
+| getRegion()           | Retrieves the region/state for the IP.                  | String  |
+| getCountry()          | Retrieves the country associated with the IP.           | String  |
+| getCountryCode()      | Retrieves the country code associated with the IP.      | String  |
+| getCurrency()         | Retrieves currency of the country associated by the IP. | String  |
+| getIpType()           | Retrieves the type of IP (Ipv4 / Ipv6)                  | String  |
 
 
 ![App Screenshot](images/screenshot.png)
